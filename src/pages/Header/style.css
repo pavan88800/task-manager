@@ -1,0 +1,19 @@
+.bg-blue {
+  background-color: #273c8e;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.nav-bar > ul {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+  padding: 20px;
+  font-size: 19px;
+  color: #fff;
+  gap: 100px;
+  font-weight: 500;
+}
+ul > li {
+  list-style: none;
+  cursor: pointer;
+}
