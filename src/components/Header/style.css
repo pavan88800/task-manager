@@ -10,10 +10,16 @@
   padding: 20px;
   font-size: 19px;
   color: #fff;
-  gap: 100px;
-  font-weight: 500;
+  gap: 80px;
+  font-weight: 400;
 }
 ul > li {
   list-style: none;
   cursor: pointer;
+}
+
+.avatar {
+  display: inline-block !important;
+  margin-right: 25px;
+  margin-bottom: -10px;
 }
