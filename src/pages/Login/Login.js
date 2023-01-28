@@ -1,13 +1,13 @@
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import { Button } from "./button.stylecompoents";
 import homeImage from "../../assets/Images/4380.jpg";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../config";
 import GoogleIcon from "@mui/icons-material/Google";
 import { Navigate } from "react-router-dom";
 import { setLocalStorage } from "../../utils";
+import { Button } from "../../components/UI";
 
 const Login = () => {
   const [user, setUser] = useState(false);
@@ -40,14 +40,14 @@ const Login = () => {
     <Container style={{ marginTop: "8%" }}>
       {/* {console.log(provider)} */}
       <Grid container spacing={12}>
-        <Grid item lg={8} sm={6}>
+        <Grid item lg={8} md={6} sm={6}>
           <img
             src={homeImage}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
             alt="homeImage"
           />
         </Grid>
-        <Grid item lg={4} sm={6} style={{ marginTop: "10%" }}>
+        <Grid item lg={4} md={6} sm={6} style={{ marginTop: "10%" }}>
           <h2>Login In to Your Account</h2>
           <Button onClick={() => LoginWithGoogle()} bgColor={"#dc4a34"}>
             <GoogleIcon className="icon" /> Continue with Google

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+const StyledButton = styled.button`
   width: 300px;
   padding: 10px;
   border-radius: 10px;
@@ -11,3 +11,5 @@ export const Button = styled.button`
   background: ${(props) => props.bgColor};
   color: #fff;
 `;
+
+export default StyledButton;
