@@ -1,11 +1,10 @@
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import homeImage from "../../assets/Images/4380.jpg";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../config";
 import GoogleIcon from "@mui/icons-material/Google";
-import { Navigate } from "react-router-dom";
 import { setLocalStorage } from "../../utils";
 import { Button } from "../../components/UI";
 
@@ -31,11 +30,6 @@ const Login = () => {
       });
   };
 
-  console.log(user, "user");
-
-  if (user) {
-    return <Navigate to="/home" />;
-  }
   return (
     <Container style={{ marginTop: "8%" }}>
       {/* {console.log(provider)} */}

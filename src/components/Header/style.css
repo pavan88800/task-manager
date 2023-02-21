@@ -16,6 +16,7 @@
 ul > li {
   list-style: none;
   cursor: pointer;
+  text-align: center;
 }
 
 .avatar {
