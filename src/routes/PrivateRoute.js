@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { getLocalStorage } from "../utils";
-let auth = getLocalStorage("token");
 const PrivateRoute = ({ children }) => {
-  return auth ? children : <Navigate to="/" />;
+  const auth = getLocalStorage("token");
+  return auth && auth.length ? children : <Navigate to="/" />;
 };
 
 export default PrivateRoute;

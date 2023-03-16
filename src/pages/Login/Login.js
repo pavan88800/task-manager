@@ -1,16 +1,16 @@
 import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
-import React, { useState } from "react";
+import React from "react";
 import homeImage from "../../assets/Images/4380.jpg";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../config";
 import GoogleIcon from "@mui/icons-material/Google";
-import { setLocalStorage } from "../../utils";
+import { Navigate, useNavigate } from "react-router-dom";
+import { getLocalStorage, setLocalStorage } from "../../utils";
 import { Button } from "../../components/UI";
 
 const Login = () => {
-  const [user, setUser] = useState(false);
-
+  const navigate = useNavigate();
   //LoginWithGoogle
   const LoginWithGoogle = () => {
     const auth = getAuth(app);
@@ -22,17 +22,15 @@ const Login = () => {
         const token = user.stsTokenManager.accessToken;
         setLocalStorage("token", token);
         setLocalStorage("user", user);
-        setUser(true);
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error);
-        setUser(false);
       });
   };
 
   return (
     <Container style={{ marginTop: "8%" }}>
-      {/* {console.log(provider)} */}
       <Grid container spacing={12}>
         <Grid item lg={8} md={6} sm={6}>
           <img

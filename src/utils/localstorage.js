@@ -2,7 +2,7 @@ export const getLocalStorage = (key) => {
   if (localStorage.getItem(key) !== null) {
     return JSON.parse(localStorage.getItem(key));
   } else {
-    return [];
+    return [] || "";
   }
 };
 
