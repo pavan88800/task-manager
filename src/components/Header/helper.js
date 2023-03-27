@@ -1,11 +1,8 @@
-import { redirect } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-
 export const HeaderList = [
   {
     id: 14,
     label: "My Project",
-    isAvatar: false,
+    isIcon: false,
     isDropdrown: false,
   },
 
@@ -13,18 +10,23 @@ export const HeaderList = [
     id: 10,
     type: "library",
     label: "library",
-    isAvatar: false,
+    isIcon: false,
     isDropdrown: true,
     options: [
       {
         id: 15,
-        value: "Place order",
-        key: "placeOrder",
+        value: "Insert Global Module",
+        key: "Insert Global Module",
       },
       {
         id: 16,
-        value: "People Officer...",
-        key: "PeopleOfficer",
+        value: "View Global Library",
+        key: "View Global Library",
+      },
+      {
+        id: 17,
+        value: "Track Global Modules",
+        key: "Track Global Modules",
       },
     ],
   },
@@ -32,14 +34,13 @@ export const HeaderList = [
     id: 11,
     type: "proflie",
     isDropdrown: true,
-    label: `pavan`,
-    isAvatar: true,
+    label: ``,
+    isIcon: true,
     options: [
       {
         id: 13,
         value: "My account",
         key: "Proflie",
-        // onClick: () => openC(),
       },
       {
         id: 14,
@@ -50,12 +51,17 @@ export const HeaderList = [
   },
 ];
 
-export const onClickFunctions = (type) => {
+export const onClickFunctions = (type, history) => {
+  const Logout = () => {
+    history("/");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  };
   switch (type) {
-    case "LogOut":
-      return <Navigate to="/" />;
+    case "Logout":
+      return () => Logout();
 
     default:
-      return "";
+      return () => console.log("something went worng...");
   }
 };

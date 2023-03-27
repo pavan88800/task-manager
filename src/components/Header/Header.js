@@ -36,7 +36,7 @@ const Header = () => {
             HeaderList?.map((item) =>
               item.isDropdrown ? (
                 <li key={item.id} onClick={(e) => handleClick(e, item.type)}>
-                  {item.isAvatar ? (
+                  {item.isIcon ? (
                     <Avatar
                       className="avatar"
                       alt="Remy Sharp"
@@ -45,6 +45,7 @@ const Header = () => {
                     />
                   ) : null}
                   {item.label}
+                  {item.id === 11 ? "pav" : ""}
                   <MenuList
                     id={item.label}
                     open={Boolean(anchorEl[item.type])}
@@ -55,9 +56,7 @@ const Header = () => {
                   {item.type ? <ArrowDropDownIcon className="icon" /> : null}
                 </li>
               ) : (
-                <li key={item.id} onClick={() => console.log("as")}>
-                  {item.label}
-                </li>
+                <li key={item.id}>{item.label}</li>
               )
             )
           ) : (

@@ -5,12 +5,19 @@ import homeImage from "../../assets/Images/4380.jpg";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../../config";
 import GoogleIcon from "@mui/icons-material/Google";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getLocalStorage, setLocalStorage } from "../../utils";
 import { Button } from "../../components/UI";
 
 const Login = () => {
   const navigate = useNavigate();
+  let auth = getLocalStorage("token");
+  React.useEffect(() => {
+    if (auth.length) {
+      navigate("/home");
+    }
+  }, []);
+
   //LoginWithGoogle
   const LoginWithGoogle = () => {
     const auth = getAuth(app);
